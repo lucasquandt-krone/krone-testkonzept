@@ -146,17 +146,17 @@ body{font-family:"Noto Sans","Segoe UI",sans-serif;background:transparent;color:
         <div class="card" style="border-left:3px solid var(--gn);margin-top:16px">
           <h3>Teststatus und Ergebnisse</h3>
           <p style="margin-bottom:16px">Jeder Testfall durchl&auml;uft einen Lebenszyklus:</p>
-          <div class="flow">
+          <div style="display:flex;align-items:center;gap:0;overflow-x:auto;padding:6px 0">
             <div class="fs"><div class="fn" style="background:var(--tx3)">&ndash;</div><h4>Initial</h4><p>Noch nicht gestartet</p></div>
             <div class="fa">&rarr;</div>
             <div class="fs"><div class="fn" style="background:var(--bl)">&#x25B6;</div><h4>In Progress</h4><p>Wird aktuell getestet</p></div>
             <div class="fa">&rarr;</div>
-            <div class="fs" style="border-color:var(--gn)"><div class="fn" style="background:var(--gn)">&#x2713;</div><h4>Passed</h4><p>Alle Schritte liefern das erwartete Ergebnis</p></div>
+            <div style="flex:1;min-width:125px;display:flex;flex-direction:column;gap:8px">
+              <div class="fs" style="border-color:var(--gn)"><div class="fn" style="background:var(--gn)">&#x2713;</div><h4>Passed</h4><p>Alle Schritte liefern das erwartete Ergebnis</p></div>
+              <div style="text-align:center;color:var(--tx3);font-size:11px">oder</div>
+              <div class="fs" style="border-color:var(--rd)"><div class="fn" style="background:var(--rd)">&#x2717;</div><h4>Failed</h4><p>Mindestens ein Schritt weicht ab &rarr; Defect wird angelegt</p></div>
+            </div>
           </div>
-          <div style="text-align:center;color:var(--tx3);font-size:11px;margin:6px 0">oder</div>
-          <div style="display:flex;justify-content:center"><div class="fs" style="border-color:var(--rd);max-width:240px"><div class="fn" style="background:var(--rd)">&#x2717;</div><h4>Failed</h4><p>Mindestens ein Schritt weicht ab &rarr; Defect wird angelegt</p></div></div>
-        </div>
-      </div>
 
       <div class="tp p4">
         <div class="card" style="border-left:3px solid var(--rd);margin-top:16px">
