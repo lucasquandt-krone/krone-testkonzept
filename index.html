@@ -262,7 +262,7 @@ body{font-family:"Noto Sans","Segoe UI",sans-serif;font-size:15px;background:tra
       </div>
     </div>
     <div class="card">
-      <div class="ci ci-b">&#x1F464;</div><div class="clbl">Testdurchf&uuml;hrung</div>
+      <div class="ci ci-b">&#x1F464;</div><div class="clbl">Testausf&uuml;hrung</div>
       <h3>Tester</h3>
       <div style="margin-top:8px">
         <div class="ra"><span style="color:var(--bl)">&rarr;</span> F&uuml;hrt Testf&auml;lle im SAP-System durch</div>
@@ -288,7 +288,7 @@ body{font-family:"Noto Sans","Segoe UI",sans-serif;font-size:15px;background:tra
     <!-- Die zwei direkten operativen Rollen -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
 
-      <!-- Key User -->
+      <!-- Testkoordinator -->
       <div style="background:#fff;border:1px solid rgba(0,128,128,.2);border-radius:var(--r);padding:16px">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <div class="ci ci-g" style="width:32px;height:32px;font-size:14px;margin-bottom:0">&#x2B50;</div>
@@ -297,9 +297,9 @@ body{font-family:"Noto Sans","Segoe UI",sans-serif;font-size:15px;background:tra
             <div style="font-size:12px;color:var(--tx3)">direkter Ansprechpartner</div>
           </div>
         </div>
-        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px">Key User</h3>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px">Testkoordinator</h3>
         <div class="ra"><span style="color:var(--gn)">&rarr;</span> Verantwortlich f&uuml;r Testf&auml;lle des Fachbereichs</div>
-        <div class="ra"><span style="color:var(--gn)">&rarr;</span> Koordiniert Tester &amp; Arbeitspakete</div>
+        <div class="ra"><span style="color:var(--gn)">&rarr;</span> Koordiniert Tester, Key User &amp; Arbeitspakete</div>
         <div class="ra"><span style="color:var(--gn)">&rarr;</span> Bindeglied zwischen Fachbereich und KBC</div>
       </div>
 
@@ -376,88 +376,275 @@ body{font-family:"Noto Sans","Segoe UI",sans-serif;font-size:15px;background:tra
 <div class="sdiv"><i></i> Defektmanagement</div>
 <div class="ct">
 
-  <!-- Prozess -->
+  <!-- Prozess Flowchart -->
   <div class="sec">
     <div class="sdesc">Der Prozess stellt sicher, dass kein Fehler verloren geht und jeder Defekt klar zugeordnet und gel&ouml;st wird.</div>
 
-    <div class="df">
-        <div class="ds">
-          <div class="dn">1</div>
-          <div class="dc"><h4>Tester meldet Defekt</h4><p>Beschreibung, Priorit&auml;t, Screenshot, betroffener Testschritt &ndash; direkt im Testfall angelegt.</p></div>
-        </div>
-        <div class="darr">&darr;</div>
-        <div class="ds">
-          <div class="dn">2</div>
-          <div class="dc"><h4>Key User triagiert</h4><p>KBC-relevant (Systemfehler, fehlendes Customizing) oder fachlich l&ouml;sbar (falsche Testdaten, Bedienfehler)?</p></div>
-        </div>
-        <div class="darr">&darr;</div>
-        <div class="ds">
-          <div class="dn">3</div>
-          <div class="dc"><h4>Gemeinsame Entscheidung im Testing Trio</h4><p>Key User und KBC-Modulbetreuung bewerten gemeinsam: Eigenst&auml;ndig l&ouml;sbar oder KBC-Pr&uuml;fung notwendig? Das Trio steuert den L&ouml;sungsweg.</p></div>
-        </div>
-        <div class="darr">&darr;</div>
+    <style>
+      /* ── Flowchart grid: 2 cols, left=main, right=branches ── */
+      .pf{display:grid;grid-template-columns:1fr 180px;column-gap:0;row-gap:0;max-width:660px;margin:0 auto}
 
-        <!-- Step 4: expanded with 4 resolution buckets -->
-        <div class="ds" style="max-width:600px;flex-direction:column;gap:10px">
-          <div style="display:flex;align-items:center;gap:12px;width:100%">
-            <div class="dn">4</div>
-            <h4 style="font-size:14px;font-weight:600">KBC-Pr&uuml;fung</h4>
-          </div>
-          <!-- 4 buckets: 3 internal + 1 external -->
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;width:100%">
-            <!-- Customizing: KBC-Modulbetreuung owns this -->
-            <div style="background:var(--k05);border:1px solid rgba(0,128,128,.3);border-radius:var(--rs);padding:10px 12px">
-              <strong style="display:block;font-size:12px;color:var(--k);margin-bottom:3px">&rarr; Customizing</strong>
-              <span style="font-size:11px;color:var(--tx2)">Konfiguration, Prozessanpassung</span>
-              <div style="margin-top:6px;padding-top:6px;border-top:1px solid rgba(0,128,128,.15);font-size:10px;color:var(--kd);font-weight:600">KBC-Modulbetreuung</div>
-            </div>
-            <!-- Entwicklung -->
-            <div class="dbi" style="min-width:0;max-width:none">
-              <strong style="display:block;font-size:12px">&rarr; Entwicklung</strong>
-              <span style="font-size:11px">ABAP / komplexe Anpassung</span>
-            </div>
-            <!-- Basis -->
-            <div class="dbi" style="min-width:0;max-width:none">
-              <strong style="display:block;font-size:12px">&rarr; Basis</strong>
-              <span style="font-size:11px">System, Berechtigungen</span>
-            </div>
-          </div>
-          <!-- NTT Data as separate external row -->
-          <div style="width:100%;border:1px dashed rgba(92,61,158,.4);border-radius:var(--rs);background:#fff;padding:10px 14px;display:flex;align-items:center;gap:12px">
-            <div style="width:28px;height:28px;border-radius:var(--rs);background:var(--extl);color:var(--ext);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">&#x1F4A1;</div>
-            <div style="flex:1">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
-                <strong style="font-size:12px;color:var(--extd)">&rarr; NTT Data</strong>
-                <span style="background:var(--extl);color:var(--ext);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:1px 6px;border-radius:10px">Extern</span>
-              </div>
-              <span style="font-size:11px;color:var(--tx2)">Technische Ursachenanalyse &amp; Probleml&ouml;sung &ndash; Abstimmung direkt mit KBC-Entwicklung und SAP Basis, nicht mit dem Fachbereich</span>
-            </div>
-          </div>
-        </div>
+      /* Main column: center everything */
+      .pf-main{grid-column:1;display:flex;flex-direction:column;align-items:center}
+      /* Branch column: align items to start of cell */
+      .pf-branch{grid-column:2;display:flex;align-items:center;padding-left:0}
+      /* Empty branch placeholder keeps rows aligned */
+      .pf-empty{grid-column:2}
 
-        <div class="darr">&darr;</div>
-        <div class="ds" style="border-color:var(--gn)">
-          <div class="dn" style="background:var(--gn)">5</div>
-          <div class="dc"><h4>L&ouml;sung &amp; Nachtest</h4><p>L&ouml;sungsprotokoll &rarr; Status &bdquo;Nachtest&ldquo; &rarr; Tester pr&uuml;ft. Erfolgreich: Defekt wird geschlossen. Fehlgeschlagen: zur&uuml;ck auf &bdquo;In Progress&ldquo;.</p></div>
+      /* Nodes */
+      .pf-node{width:100%;background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:13px 18px;transition:border-color .2s}
+      .pf-node:hover{border-color:var(--k);box-shadow:0 2px 10px rgba(0,128,128,.07)}
+      .pf-nh{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+      .pf-num{width:24px;height:24px;border-radius:50%;background:var(--k);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+      .pf-node h4{font-size:14px;font-weight:600;margin:0}
+      .pf-node p{font-size:13px;color:var(--tx2);margin:0;padding-left:34px;line-height:1.5}
+      .pf-badge{display:inline-flex;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:700;margin:6px 0 0 34px}
+
+      /* Arrow between main steps */
+      .pf-arr{color:var(--k);font-size:20px;line-height:1;padding:2px 0;text-align:center;width:100%}
+
+      /* Decision box (diamond-style pill) */
+      .pf-dec{width:100%;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rs);padding:10px 18px;text-align:center;transition:border-color .2s}
+      .pf-dec:hover{border-color:var(--k)}
+      .pf-dec h4{font-size:13px;font-weight:600;margin-bottom:2px}
+      .pf-dec p{font-size:11px;color:var(--tx2);margin:0}
+
+      /* Side connector: horizontal line + label + side node */
+      .pf-connector{display:flex;align-items:center;gap:0;width:100%}
+      .pf-cline{height:1.5px;flex:1;background:var(--bd)}
+      .pf-clabel{font-size:11px;color:var(--tx3);padding:0 7px;white-space:nowrap}
+      .pf-cnode{background:#fff;border:1px solid var(--bd);border-radius:var(--rs);padding:8px 10px;flex-shrink:0;min-width:120px}
+      .pf-cnode strong{display:block;font-size:12px;font-weight:600;margin-bottom:2px}
+      .pf-cnode span{font-size:11px;color:var(--tx2);line-height:1.4;display:block}
+      .pf-cnode-gn{border-color:rgba(16,124,16,.35)}
+      .pf-cnode-gn strong{color:var(--gn)}
+      .pf-cnode-gy strong{color:var(--tx2)}
+
+      /* Nein label below decision + return label */
+      .pf-nein{font-size:11px;color:var(--tx3);width:100%;text-align:center;padding:1px 0}
+      .pf-return{font-size:11px;color:var(--tx3);width:100%;text-align:center;padding:2px 0;font-style:italic}
+
+      /* KBC container */
+      .pf-kbc{width:100%;border:1.5px solid rgba(0,128,128,.4);border-radius:var(--r);background:#fff;overflow:hidden}
+      .pf-kbc-h{background:var(--k05);border-bottom:1px solid rgba(0,128,128,.15);padding:10px 16px;display:flex;align-items:center;gap:10px}
+      .pf-kbc-h h4{font-size:14px;font-weight:600;margin:0;color:var(--kd)}
+      .pf-kbc-b{padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+      .pf-tracks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+      .pf-track{background:var(--k05);border:1px solid rgba(0,128,128,.25);border-radius:var(--rs);padding:10px 11px}
+      .pf-track strong{display:block;font-size:12px;color:var(--k);margin-bottom:3px}
+      .pf-track span{font-size:11px;color:var(--tx2);line-height:1.4}
+      .pf-track-f{margin-top:6px;padding-top:5px;border-top:1px solid rgba(0,128,128,.15);font-size:10px;font-weight:700;color:var(--kd)}
+      .pf-ntt{background:rgba(92,61,158,.04);border:1px dashed rgba(92,61,158,.35);border-radius:var(--rs);padding:10px 13px;display:flex;align-items:flex-start;gap:10px}
+      .pf-ntt-ico{width:26px;height:26px;border-radius:var(--rs);background:var(--extl);color:var(--ext);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:1px}
+      .pf-ntt-badge{background:var(--extl);color:var(--ext);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:1px 6px;border-radius:10px;margin-left:6px;display:inline-block}
+      .pf-ntt strong{font-size:12px;color:var(--extd)}
+      .pf-ntt span{font-size:11px;color:var(--tx2)}
+
+      /* Legend */
+      .pf-legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;padding-top:14px;margin-top:14px;border-top:1px solid var(--bdl)}
+      .pf-legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--tx2)}
+      .pf-legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+      @media(max-width:600px){
+        .pf{grid-template-columns:1fr}
+        .pf-branch,.pf-empty{display:none}
+        .pf-tracks{grid-template-columns:1fr}
+      }
+    </style>
+
+    <div class="pf">
+
+      <!-- 1 ─ Tester meldet Defekt -->
+      <div class="pf-main">
+        <div class="pf-node">
+          <div class="pf-nh"><div class="pf-num">1</div><h4>Tester meldet Defekt</h4></div>
+          <p>Beschreibung, Priorit&auml;t, Screenshot, betroffener Testschritt &ndash; direkt im Testfall angelegt.</p>
+          <div class="pf-badge" style="background:rgba(0,120,212,.12);color:#005a9e">Status: Neu</div>
+        </div>
+        <div class="pf-arr">&darr;</div>
+      </div>
+      <div class="pf-empty"></div>
+
+      <!-- 2 ─ Key User triagiert -->
+      <div class="pf-main">
+        <div class="pf-node">
+          <div class="pf-nh"><div class="pf-num">2</div><h4>Key User triagiert</h4></div>
+          <p>KBC-relevant (Systemfehler, fehlendes Customizing) oder fachlich l&ouml;sbar (falsche Testdaten, Bedienfehler)?</p>
+          <div class="pf-badge" style="background:rgba(152,111,11,.12);color:#7a5800">Status: In Bearbeitung</div>
+        </div>
+        <div class="pf-arr">&darr;</div>
+      </div>
+      <div class="pf-empty"></div>
+
+      <!-- Entscheidung: Fachlich lösbar? -->
+      <div class="pf-main">
+        <div class="pf-dec">
+          <h4>Fachlich l&ouml;sbar?</h4>
+          <p>Testdaten, Bedienfehler</p>
+        </div>
+        <div class="pf-nein">Nein &darr;</div>
+      </div>
+      <div class="pf-branch">
+        <div class="pf-connector">
+          <div class="pf-cline"></div>
+          <span class="pf-clabel">Ja</span>
+          <div class="pf-cnode pf-cnode-gn">
+            <strong>&#x2713; Abgeschlossen</strong>
+            <span>kein Systemfehler</span>
+          </div>
         </div>
       </div>
+
+      <!-- 3 ─ Testing Trio -->
+      <div class="pf-main">
+        <div class="pf-node" style="border-color:rgba(83,74,183,.35);background:rgba(83,74,183,.03)">
+          <div class="pf-nh"><div class="pf-num" style="background:#534ab7">3</div><h4>Testing Trio entscheidet</h4></div>
+          <p>Key User und KBC-Modulbetreuung bewerten gemeinsam: Eigenst&auml;ndig l&ouml;sbar, KBC-Pr&uuml;fung notwendig oder vorl&auml;ufig zur&uuml;ckstellen?</p>
+          <div class="pf-badge" style="background:rgba(83,74,183,.1);color:#3d2870">Status: In Bearbeitung</div>
+        </div>
+        <div class="pf-arr">&darr;</div>
+      </div>
+      <div class="pf-branch">
+        <div class="pf-connector">
+          <div class="pf-cline"></div>
+          <span class="pf-clabel">Parken</span>
+          <div class="pf-cnode pf-cnode-gy">
+            <strong>&#x23F8; Zur&uuml;ckgestellt</strong>
+            <span>Behebung verschoben</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 ─ KBC-Prüfung -->
+      <div class="pf-main">
+        <div class="pf-kbc">
+          <div class="pf-kbc-h">
+            <div class="pf-num">4</div>
+            <h4>KBC-Pr&uuml;fung &amp; Analyse</h4>
+          </div>
+          <div class="pf-kbc-b">
+            <div class="pf-tracks">
+              <div class="pf-track">
+                <strong>&rarr; Customizing</strong>
+                <span>Konfiguration, Prozessanpassung</span>
+                <div class="pf-track-f">KBC-Modulbetreuung</div>
+              </div>
+              <div class="pf-track">
+                <strong>&rarr; Entwicklung</strong>
+                <span>ABAP / komplexe Anpassung</span>
+              </div>
+              <div class="pf-track">
+                <strong>&rarr; Basis</strong>
+                <span>System, Berechtigungen</span>
+              </div>
+            </div>
+            <div class="pf-ntt">
+              <div class="pf-ntt-ico">&#x1F4A1;</div>
+              <div>
+                <div style="margin-bottom:3px">
+                  <strong>&rarr; NTT Data</strong>
+                  <span class="pf-ntt-badge">Extern</span>
+                </div>
+                <span>Technische Ursachenanalyse &amp; Probleml&ouml;sung &ndash; Abstimmung direkt mit KBC-Entwicklung und SAP Basis, nicht mit dem Fachbereich</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-arr">&darr;</div>
+      </div>
+      <div class="pf-empty"></div>
+
+      <!-- 5 ─ Lösung bereitgestellt -->
+      <div class="pf-main">
+        <div class="pf-node" style="border-color:rgba(16,124,16,.35);background:rgba(16,124,16,.03)">
+          <div class="pf-nh"><div class="pf-num" style="background:var(--gn)">5</div><h4>L&ouml;sung bereitgestellt</h4></div>
+          <p>L&ouml;sungsprotokoll wird eingetragen.</p>
+          <div class="pf-badge" style="background:rgba(152,111,11,.12);color:#7a5800">Status: Nachtest erforderlich</div>
+        </div>
+        <div class="pf-arr">&darr;</div>
+      </div>
+      <div class="pf-empty"></div>
+
+      <!-- Entscheidung: Nachtest OK? -->
+      <div class="pf-main">
+        <div class="pf-dec">
+          <h4>Nachtest OK?</h4>
+          <p>Tester pr&uuml;ft erneut</p>
+        </div>
+        <div class="pf-return">Nein &rarr; zur&uuml;ck auf &bdquo;In Bearbeitung&ldquo;</div>
+      </div>
+      <div class="pf-branch">
+        <div class="pf-connector">
+          <div class="pf-cline"></div>
+          <span class="pf-clabel">Ja</span>
+          <div class="pf-cnode pf-cnode-gn">
+            <strong>&#x2713; Abgeschlossen</strong>
+            <span>Status: Abgeschlossen</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legende -->
+      <div class="pf-legend" style="grid-column:1 / -1">
+        <div class="pf-legend-item"><div class="pf-legend-dot" style="background:var(--gn)"></div>Abgeschlossen</div>
+        <div class="pf-legend-item"><div class="pf-legend-dot" style="background:var(--am)"></div>In Bearbeitung</div>
+        <div class="pf-legend-item"><div class="pf-legend-dot" style="background:#c05000"></div>Nachtest erforderlich</div>
+        <div class="pf-legend-item"><div class="pf-legend-dot" style="background:var(--tx3)"></div>Zur&uuml;ckgestellt (Park)</div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Defekt-Lebenszyklus -->
   <div class="sec">
     <div class="sh">Defekt-Lebenszyklus</div>
-    <div class="flow">
-      <div class="fs"><div class="fn" style="background:var(--tx3)">N</div><h4>Neu</h4><p>Neu angelegt</p></div>
+
+    <!-- Hauptpfad: horizontal -->
+    <div class="flow" style="margin-bottom:0">
+      <div class="fs"><div class="fn" style="background:var(--tx3)">N</div><h4>Neu</h4><p>Defekt angelegt</p></div>
       <div class="fa">&rarr;</div>
-      <div class="fs"><div class="fn" style="background:var(--bl)">&#x25B6;</div><h4>In Bearbeitung</h4><p>Wird bearbeitet</p></div>
+      <div class="fs" style="position:relative">
+        <div class="fn" style="background:var(--bl)">&#x25B6;</div>
+        <h4>In Bearbeitung</h4>
+        <p>Triage &amp; KBC-Pr&uuml;fung</p>
+      </div>
       <div class="fa">&rarr;</div>
-      <div class="fs" style="border-color:var(--am)"><div class="fn" style="background:var(--am)">NT</div><h4>Nachtest</h4><p>Bereit zum Nachtest</p></div>
+      <div class="fs" style="border-color:var(--am)"><div class="fn" style="background:var(--am)">NT</div><h4>Nachtest erforderlich</h4><p>L&ouml;sung bereit, Tester pr&uuml;ft</p></div>
       <div class="fa">&rarr;</div>
-      <div class="fs" style="border-color:var(--gn)"><div class="fn" style="background:var(--gn)">&#x2713;</div><h4>Abgeschlossen</h4><p>Erfolgreich gel&ouml;st</p></div>
+      <div class="fs" style="border-color:var(--gn)"><div class="fn" style="background:var(--gn)">&#x2713;</div><h4>Abgeschlossen</h4><p>Nachtest bestanden</p></div>
     </div>
-    <div class="co co-a" style="margin-top:10px">
-      <div class="co-i">&#x21A9;&#xFE0F;</div>
-      <div><h4>Nachtest fehlgeschlagen?</h4><p>Defekt geht zur&uuml;ck auf &bdquo;In Progress&ldquo; &ndash; der Zyklus beginnt erneut ab Schritt&nbsp;2.</p></div>
+
+    <!-- Zurückgestellt als Seitenast von "In Bearbeitung" -->
+    <div style="display:flex;align-items:flex-start;margin-top:0;padding-left:0;overflow-x:auto">
+      <!-- Spacer: Neu-Box + Pfeil -->
+      <div style="flex:1;min-width:110px;visibility:hidden"><div class="fn">N</div></div>
+      <div style="width:22px;flex-shrink:0"></div>
+      <!-- Unter "In Bearbeitung": Abzweig nach unten -->
+      <div style="flex:1;min-width:110px;display:flex;flex-direction:column;align-items:center">
+        <div style="width:1.5px;height:14px;background:var(--bd)"></div>
+        <div style="font-size:10px;color:var(--tx3);white-space:nowrap">Behebung verschieben</div>
+        <div style="width:1.5px;height:10px;background:var(--bd)"></div>
+        <div style="background:#fff;border:1px solid var(--bd);border-radius:var(--rs);padding:8px 10px;text-align:center;width:100%">
+          <div class="fn" style="background:var(--tx3);margin:0 auto 5px">&#x23F8;</div>
+          <h4 style="font-size:12px;font-weight:600;margin-bottom:2px">Zur&uuml;ckgestellt</h4>
+          <p style="font-size:11px;color:var(--tx2)">Parkstatus &ndash; offen, aber nicht aktiv</p>
+        </div>
+        <div style="font-size:10px;color:var(--tx3);margin-top:5px;white-space:nowrap">&#x21A9; wieder &rarr; In Bearbeitung</div>
+      </div>
+      <!-- Rest spacer -->
+      <div style="flex:2;min-width:220px;visibility:hidden"></div>
+    </div>
+
+    <!-- Hinweisboxen -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+      <div class="co co-a" style="flex:1;min-width:200px;margin:0">
+        <div class="co-i">&#x21A9;&#xFE0F;</div>
+        <div><h4>Nachtest fehlgeschlagen?</h4><p>Defekt geht zur&uuml;ck auf &bdquo;In Bearbeitung&ldquo; &ndash; der Zyklus beginnt erneut ab Schritt&nbsp;2.</p></div>
+      </div>
+      <div class="co co-t" style="flex:1;min-width:200px;margin:0">
+        <div class="co-i">&#x23F8;&#xFE0F;</div>
+        <div><h4>Zur&uuml;ckgestellt</h4><p>Parkstatus f&uuml;r Defekte, deren Behebung bewusst verschoben wird. Jederzeit zur&uuml;ck auf &bdquo;In Bearbeitung&ldquo; setzbar.</p></div>
+      </div>
     </div>
   </div>
 
